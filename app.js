@@ -28,7 +28,7 @@ async function main() {
 
     try {
         await mongoose.connect(process.env.MONGO_CONNECTION_URI)
-        app.listen(443)
+        app.listen(80)
         console.log('Сервер ожидает подключения...')
     } catch(err) {
         return console.log(err)
