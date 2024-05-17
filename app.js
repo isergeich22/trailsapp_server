@@ -70,6 +70,8 @@ app.get('/api/current', async function(req, res){
 
 app.get('/api/history', async function(req, res){
 
+    res.header('Access-Control-Allow-Origin', '*')
+
     const history = await endedRoute.find({})
 
     if(history.length > 0) {
@@ -210,6 +212,8 @@ app.put('/api/purchase_update', async function(req, res){
 
 app.put('/api/purchase_remove', async function(req, res){
 
+    res.header('Access-Control-Allow-Origin', '*')
+
     const result = await route.findOneAndUpdate(
         {
             executorName: req.body.executorName
@@ -231,7 +235,7 @@ app.put('/api/purchase_remove', async function(req, res){
 
 app.put('/api/package_remove', async function(req, res){
 
-    console.log('hello')
+    res.header('Access-Control-Allow-Origin', '*')
     
     const result = await route.findOneAndUpdate(
         {
