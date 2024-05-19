@@ -163,6 +163,27 @@ app.put('/api/current/:operation', async function(req, res){
         
     }
 
+    if(req.params.operation === 'edit_start_sum') {
+
+        if(req.body.startSum !== undefined) {
+
+            const result = await route.findOneAndUpdate(
+                {
+                    executorName: req.body.executorName
+                },
+                {
+                    startSum: req.body.startSum
+                }
+            )
+
+            const currRoute = await route.find({})
+
+            res.status(200).json(currRoute)
+
+        }
+
+    }
+
 })
 
 app.put('/api/purchase_update', async function(req, res){
