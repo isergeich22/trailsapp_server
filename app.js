@@ -17,7 +17,11 @@ const endedRoute = mongoose.model('history_trails', endedRouteSchema)
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin: ["*"],
+    methods: ["GET", "PUT", "POST", "DELETE"],
+    allowedHeaders: ["Origin", "Content-Type", "Authorization"],
+}))
 app.use(express.json())
 
 const urlencodedParser = bodyParser.urlencoded({
